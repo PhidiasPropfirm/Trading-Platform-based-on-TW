@@ -1,7 +1,26 @@
 {
-	"references": [
-		{ "path": "./e2e/tsconfig.composite.json" },
-		{ "path": "./unittests/tsconfig.composite.json" }
-	],
-	"include": []
+	"extends": "../../tsconfig.composite.base.json",
+	"compilerOptions": {
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"lib": [
+			"dom",
+			"es2020"
+		],
+		"moduleResolution": "bundler",
+		"module": "Preserve",
+	},
+	"include": [
+		"./coverage/**/*.ts",
+		"./graphics/graphics-test-cases.ts",
+		"./graphics/generate-golden-content.ts",
+		"./graphics/generate-test-cases.ts",
+		"./graphics/utils.ts",
+		"./graphics/helpers/**/*.ts",
+		"./memleaks/**/*.ts",
+		"./interactions/**/*.ts",
+		"./helpers/**/*.ts",
+		"../../src/**/*.ts",
+		"./*.ts"
+	]
 }
