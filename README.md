@@ -1,96 +1,82 @@
-# Lightweight Charts™ Plugin Examples
+# create-lwc-plugin
 
-This folder contains a collection of example plugins designed to extend the
-functionality of Lightweight Charts™ and inspire the development of your own
-plugins.
+**create-lwc-plugin** is an npm package designed to simplify the process of
+creating a new plugin for Lightweight Charts™. With this generator, you can
+quickly scaffold a project from a template for either
 
-**Disclaimer:** These plugins are provided as-is, and are primarily intended as
-proof-of-concept examples and starting points. They have not been fully
-optimized for production and may not receive updates or improvements over time.
+- a Drawing primitive plugin, or
+- a Custom series plugin.
 
-We believe in the power of community collaboration, and we warmly welcome any
-pull requests (PRs) aimed at enhancing and fixing the existing examples.
-Additionally, we encourage you to create your own plugins and share them with
-the community. We would be delighted to showcase the best plugins our users
-create in this readme document.
+By using this wizard-like tool, you can customize the initial setup of their
+plugin project by answering a few questions. This allows for a seamless and
+efficient starting point, saving valuable time and effort.
 
-✨ If you have something cool to share or if you need assistance, please don't
-hesitate to get in touch.
+Whether you are developing a new Drawing primitive plugin or a Custom series
+plugin for Lightweight Charts, this generator provides a structured and
+organized foundation. It ensures that your plugin adheres to the best practices
+and conventions of Lightweight Charts, making it easier to develop, maintain,
+and contribute to the community.
 
-🚀 Need a starting point for your plugin idea? Check out
-[create-lwc-plugin](https://www.npmjs.com/package/create-lwc-plugin) package.
+Getting started with your Lightweight Charts plugin development has never been
+easier. Let the Lightweight Charts™ Plugin Scaffold Generator
+(`create-lwc-plugin`) handle the initial setup, so you can focus on creating
+outstanding plugins for Lightweight Charts™.
 
-📊 You can view a demo page of the plugins within this repo at his link:
-[Plugin Examples](https://tradingview.github.io/lightweight-charts/plugin-examples)
+✨ Need some examples for inspiration? Check out the
+[plugin-examples](https://github.com/tradingview/lightweight-charts/tree/master/plugin-examples)
+folder in the Lightweight Charts repo.
 
-## Learning More
+## Scaffolding Your First Lightweight Charts™ Plugin
 
-- [Documentation for Plugins](https://tradingview.github.io/lightweight-charts/docs/next/plugins/intro)
-- [Learn more about Lightweight Charts™](https://www.tradingview.com/lightweight-charts/)
+With NPM:
 
-## Running Locally
+```bash
+npm create lwc-plugin@latest
+```
 
-To run this repo locally, follow these steps:
+With Yarn:
 
-1. Clone the repo to your local machine
-2. First build the library
+```bash
+yarn create lwc-plugin
+```
 
-   ```shell
-   npm install
-   npm run build:prod
-   ```
+With PNPM:
 
-3. Switch to the Plugin Examples Folder, install and start the development server
+```bash
+pnpm create lwc-plugin
+```
 
-   ```shell
-   cd plugin-examples
-   npm install
-   npm run dev
-   ```
+## Using the generated project
 
-4. Visit `localhost:5173` in the browser.
+### Running Locally (during development)
 
-## Compiling the Examples
+```shell
+npm install
+npm run dev
+```
+
+Visit `localhost:5173` in the browser.
+
+### Compiling the Plugin
 
 ```shell
 npm run compile
 ```
 
-Check the output in the `compiled` folder.
+Check the output in the `dist` folder.
 
-## Using an Example
+### Publishing To NPM
 
-Once you have compiled the examples then simply copy that folder into your
-project and import the JS module in your code.
+You can configure the contents of the package's `package.json` within the
+`compile.mjs` script.
 
-1. Copy the compiled plugin folder into your project, example:
-   `plugins/background-shade-series` (from `compiled/background-shade-series`)
-2. Within your project, you can import the class as follows:
-
-   ```js
-   import { BackgroundShadeSeries } from '../plugins/background-shade-series/background-shade-series';
-
-   // ...
-
-   const backgroundShadeSeriesPlugin = new BackgroundShadeSeries();
-   const myCustomSeries = chart.addCustomSeries(backgroundShadeSeriesPlugin, {
-       lowValue: 0,
-       highValue: 1000,
-   });
-   ```
-
-## Creating your own Plugin
-
-[create-lwc-plugin](https://github.com/tradingview/lightweight-charts/tree/master/packages/create-lwc-plugin) is an npm
-package designed to simplify the process of creating a new plugin for
-Lightweight Charts™. With this generator, you can quickly scaffold a project
-from a template for either
-
-- a Drawing primitive plugin, or
-- a Custom series plugin.
-
-You can get started with this simple command:
+Once you have compiled the plugin (see above section) then you can publish the
+package to NPM with these commands:
 
 ```shell
-npm create lwc-plugin@latest
+cd dist
+npm publish
 ```
+
+Hint: append `--dry-run` to the end of the publish command to see the results of
+the publish command without actually uploading the package to NPM.
